@@ -40,3 +40,33 @@ Route::get('/tictactoe', function () {
 Route::get('/hello-teacher', function () {
     return Inertia::render('HelloTeacher');
 })->name('hello-teacher');
+
+//routes/web.php
+Route::get('/circle', function () {
+    return Inertia::render('Circle');
+})->name('circle');
+
+//routes/web.php
+Route::get('/counter', function () {
+    return Inertia::render('Counter');
+})->name('counter');
+
+//routes/web.php
+Route::get('/infinite-scroll', function () {
+    return Inertia::render('InfiniteScrollExample');
+})->name('infinite-scroll');
+
+//routes/web.php
+Route::get('/list-manager', function () {
+    return Inertia::render('ListManager');
+})->name('list-manager');
+
+//routes/web.php
+Route::get('/infinite-scroll', function () {
+    return Inertia::render('InfiniteScrollExample');
+})->name('infinite-scroll');
+
+Route::get('/font-size', function () {
+    return Inertia::render('FontSize');
+});
+
