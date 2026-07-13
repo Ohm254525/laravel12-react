@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Book;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -70,3 +71,24 @@ Route::get('/font-size', function () {
     return Inertia::render('FontSize');
 });
 
+// routes/web.php
+use App\Models\Product;
+Route::get('/product', function () {
+    $products = Product::all();
+    return Inertia::render('ProductList', compact('products') );
+})->name('product');
+
+// routes/web.php
+Route::get('/product-others', function () {
+    return Inertia::render('ProductOthers');
+})->name('product-others');
+
+// 1. หน้าเว็บหลักสำหรับแสดงผลตาราง (http://localhost:8000/quiz4)
+Route::get('/quiz4', function () {
+    return Inertia::render('Quiz4');
+});
+
+// 2. เส้นทาง API สำหรับให้ React มาดึงข้อมูลไปใช้
+Route::get('/api/books', function () {
+    return response()->json(Book::all());
+});
